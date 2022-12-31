@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>CLOSURE HANDSON</h1>
+<h3>//Q1.</h3> <br>
+function counter(){ <br>
+    var counter = 0; <br>
+
+    function IncreaseCounter() { <br>
+        return counter += 1; <br>
+    }; <br>
+
+    return IncreaseCounter; <br>
+} <br>
+
+var counter = counter(); <br>
+alert(counter()); <br>
+alert(counter()); <br>
+alert(counter()); <br>
+alert(counter()); <br>
+
+OUTPUT:
+<ol type="a">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ol>
+
+<h3>//Q2.</h3>
+    let count = 0; <br>
+(function () { <br>
+  if (count === 0) { <br>
+    let count = 1; <br>
+    console.log(count); // What is logged? <br>
+  } <br>
+  console.log(count); // What is logged? <br>
+})(); <br>
+
+OUTPUT: 
+<ol type="a">
+    <li>1</li>
+    <li>0</li>
+</ol>
+
+<h3>//Q3.</h3>
+for (var i = 0; i < 3; i++) { <br>
+    setTimeout(function log() { <br>
+      console.log(i); // What is logged? <br>
+    }, 1000); <br>
+  } <br>
+
+  OUTPUT:
+  <ol type="a">
+    <li>3</li>
+    <li>3</li>
+    <li>3</li>
+  </ol>
+
+  <h3>//Q4.Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</h3> <br>
+  function lenfun(width){ <br>
+    function brfun(length){ <br>
+      return width * length; <br>
+      
+    } <br>
+    return brfun(20); <br>
+  } <br>
+  console.log(lenfun(10)); <br>
+  OUTPUT: 200
+
+  <h3>//Q5.Take a variable in outer function and create an inner function to increase the counter every time it is called</h3> <br>
+  function counter(){ <br>
+    var counter=0; <br>
+    
+    function increaseNumber(){ <br>
+      return counter+= 1 <br>
+    } <br>
+    return increaseNumber(); <br>
+  } <br>
+  
+  var counter = counter(); <br>
+  
+  alert(counter); <br>
+   alert(counter); <br>
+
+   OUTPUT:
+   1 <br>
+   1 
+   <h3>//Q6.</h3> <br>
+   var a = 12; <br>
+(function () { <br>
+  alert(a); <br>
+})(); <br>
+OUTPUT:12
+
+<h3>//Q7.</h3> <br>
+var a = 10; <br>
+var x = (function () { <br>
+  var a = 12; <br>
+  return function () { <br>
+    alert(a); <br>
+  }; <br>
+})(); <br>
+x(); <br>
+
+OUTPUT: 12
+
+<h3>//Q8.</h3> <br>
+var globalVar = "xyz"; <br>
+
+(function outerFunc(outerArg) { <br>
+    var outerVar = 'a'; <br>
+    
+    (function innerFunc(innerArg) { <br>
+    var innerVar = 'b'; <br>
+    
+    console.log( <br>
+        "outerArg = " + outerArg + "/n" + <br>
+        "innerArg = " + innerArg + "\n" + <br>
+        "outerVar = " + outerVar + "\n" + <br>
+        "innerVar = " + innerVar + "\n" + <br>
+        "globalVar = " + globalVar); <br>
+    
+    })(456); <br>
+
+})(123); <br>
+
+OUTPUT: outerArg = 123/ninnerArg = 456 <br>
+outerVar = a <br>
+innerVar = b <br>
+globalVar = xyz
+
+
+
+    
+</body>
+</html>
